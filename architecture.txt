@@ -1,0 +1,155 @@
+                         ┌─────────────────────────┐
+                         │       USERS             │
+                         │                         │
+                         │ Admin │ Coach │ Parent  │
+                         └────────────┬────────────┘
+                                      │
+                    ┌─────────────────┴─────────────────┐
+                    │                                   │
+                    ▼                                   ▼
+          ┌──────────────────┐               ┌──────────────────┐
+          │   Web Frontend   │               │  Mobile / PWA   │
+          │ HTML/CSS/JS      │               │    (future)     │
+          │ React (future)   │               │                 │
+          └────────┬─────────┘               └────────┬─────────┘
+                   │                                  │
+                   └────────────────┬─────────────────┘
+                                    │
+                              HTTP / REST
+                                    │
+                                    ▼
+                    ┌──────────────────────────┐
+                    │       FastAPI API        │
+                    │                          │
+                    │  Authentication          │
+                    │  Players                 │
+                    │  Teams                   │
+                    │  Staff                   │
+                    │  Training                │
+                    │  Matches                 │
+                    │  Convocations            │
+                    │  Messaging               │
+                    │  Calendar                │
+                    │  Attendance              │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │       Service Layer      │
+                    │                          │
+                    │ Business Logic           │
+                    │ Permissions              │
+                    │ Validations              │
+                    │ Notifications             │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │       SQLAlchemy         │
+                    │                          │
+                    │ ORM / Database Models    │
+                    │ Relationships            │
+                    │ Queries                  │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │       PostgreSQL         │
+                    │                          │
+                    │ Users                    │
+                    │ Players                  │
+                    │ Teams                    │
+                    │ Seasons                  │
+                    │ Training                 │
+                    │ Matches                  │
+                    │ Messages                 │
+                    │ etc.                     │
+                    └──────────────────────────┘
+
+
+youth-football-manager/
+│
+├── backend/
+│   │
+│   ├── app/
+│   │   ├── main.py
+│   │   │
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   ├── security.py
+│   │   │   └── permissions.py
+│   │   │
+│   │   ├── database/
+│   │   │   ├── database.py
+│   │   │   └── session.py
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.py
+│   │   │   ├── player.py
+│   │   │   ├── parent.py
+│   │   │   ├── staff.py
+│   │   │   ├── team.py
+│   │   │   ├── season.py
+│   │   │   ├── team_player.py
+│   │   │   ├── team_staff.py
+│   │   │   ├── field.py
+│   │   │   ├── training.py
+│   │   │   ├── attendance.py
+│   │   │   ├── match.py
+│   │   │   ├── convocation.py
+│   │   │   ├── message.py
+│   │   │   └── notification.py
+│   │   │
+│   │   ├── schemas/
+│   │   │   ├── user.py
+│   │   │   ├── player.py
+│   │   │   ├── team.py
+│   │   │   ├── training.py
+│   │   │   ├── match.py
+│   │   │   ├── convocation.py
+│   │   │   └── message.py
+│   │   │
+│   │   ├── routers/
+│   │   │   ├── auth.py
+│   │   │   ├── users.py
+│   │   │   ├── players.py
+│   │   │   ├── staff.py
+│   │   │   ├── teams.py
+│   │   │   ├── seasons.py
+│   │   │   ├── training.py
+│   │   │   ├── matches.py
+│   │   │   ├── convocations.py
+│   │   │   ├── messages.py
+│   │   │   └── calendar.py
+│   │   │
+│   │   ├── services/
+│   │   │   ├── player_service.py
+│   │   │   ├── team_service.py
+│   │   │   ├── training_service.py
+│   │   │   ├── match_service.py
+│   │   │   ├── convocation_service.py
+│   │   │   ├── message_service.py
+│   │   │   └── notification_service.py
+│   │   │
+│   │   └── utils/
+│   │
+│   └── tests/
+│       ├── test_players.py
+│       ├── test_teams.py
+│       ├── test_training.py
+│       ├── test_matches.py
+│       ├── test_convocations.py
+│       └── test_auth.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── pages/
+│
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+├── .env
+├── .gitignore
+└── README.md
